@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>KHIT 홈입니다.</h1>
+	<h3>
+		<a href="/user/join">회원가입</a>&nbsp;&nbsp;&nbsp;
+		<a href="/user/">회원목록</a>&nbsp;&nbsp;&nbsp;
+	</h3>
 </body>
 </html>

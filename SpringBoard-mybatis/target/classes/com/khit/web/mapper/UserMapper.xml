@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.khit.web.mapper.UserMapper">
+	<insert id="insert">
+		insert into users(userid, userpasswd, username, userage) 
+		values(#{userId}, #{userPasswd}, #{userName}, #{userAge})
+	</insert>
+	<select id="findAll" resultType="com.khit.web.dto.UserDTO">
+		select * from users;
+	</select>
+	<select id="findbyId" resultType="com.khit.web.dto.UserDTO">
+		select * from users where id = #{id};
+	</select>
+</mapper>
