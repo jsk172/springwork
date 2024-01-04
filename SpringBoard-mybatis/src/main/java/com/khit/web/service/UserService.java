@@ -11,4 +11,14 @@ public interface UserService {
 	List<UserDTO> findAll();
 
 	UserDTO findById(long id);
+
+	UserDTO login(UserDTO userDTO);
+
+	UserDTO findByUserId(String userId);
+
+	void update(UserDTO userDTO);
+
+	void delete(Long id);
+
+
 }

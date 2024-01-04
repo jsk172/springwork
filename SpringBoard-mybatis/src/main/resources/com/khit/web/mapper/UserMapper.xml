@@ -10,9 +10,23 @@
 		values(#{userId}, #{userPasswd}, #{userName}, #{userAge})
 	</insert>
 	<select id="findAll" resultType="com.khit.web.dto.UserDTO">
-		select * from users;
+		select * from users
 	</select>
-	<select id="findbyId" resultType="com.khit.web.dto.UserDTO">
-		select * from users where id = #{id};
+	<select id="findById" resultType="com.khit.web.dto.UserDTO">
+		select * from users where id = #{id}
 	</select>
+	<select id="login" resultType="com.khit.web.dto.UserDTO">
+		select * from users where userid = #{userId} and userpasswd = #{userPasswd}
+	</select>
+	<select id="findByUserId" resultType="com.khit.web.dto.UserDTO">
+		select * from users where userid = #{userId}	
+	</select>
+	<update id="update">
+		update users set userpasswd=#{userPasswd}, username=#{userName}, userage=#{userAge}
+		where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from users where id=#{id}
+	</delete>
 </mapper>

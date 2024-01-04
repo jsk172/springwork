@@ -10,6 +10,14 @@ public interface UserMapper {
 
 	List<UserDTO> findAll();
 
-	UserDTO findById();
+	UserDTO findById(long id);
+
+	UserDTO login(UserDTO userDTO);
+
+	UserDTO findByUserId(String userId);
+
+	void update(UserDTO userDTO);
+
+	void delete(Long id);
 
 }
