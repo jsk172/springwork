@@ -51,5 +51,13 @@ public class UserServiceImpl implements UserService{
 		userMapper.delete(id);
 	}
 
-
+	@Override
+	public String checkUserId(String userId) {
+		UserDTO user = userMapper.findByUserId(userId);
+		if(user == null) { //저장된 객체가 없으면
+			return "usable"; //사용가능
+		}else { //저장된 객체가 있으면
+			return "not_usable"; //중복(사용불가능)
+		}
+	}
 }

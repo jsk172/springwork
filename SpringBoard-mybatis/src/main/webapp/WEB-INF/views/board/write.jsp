@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,15 @@
 <title>글쓰기</title>
 </head>
 <body>
+	<c:if test="${empty sessionId}">
+		<script>
+			alert("로그인 후 이용 가능합니다.");
+			location.href = "/user/login";
+		</script>
+	</c:if>
 	<jsp:include page="../layout/header.jsp" />
 	<div id="container">
-		<section id="main">
+		<section id="writeform">
 			<h2>글쓰기</h2>
 			<form action="/board/write" method="post">
 				<table class="tbl_write">

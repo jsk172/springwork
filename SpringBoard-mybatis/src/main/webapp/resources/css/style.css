@@ -239,68 +239,50 @@ table thead{
 }
 
 /* 글 상세보기 */
-#board_view{
-	width: 800px;
-	margin: 20px auto;
-}
-#board_view table{
-	width: 800px;
-	margin: 20px auto;
-}
-#board_view table, th, td{
-	border: 1px solid #ccc;
+#board_detail{
 	text-align: center;
-	border-collapse: collapse;
 }
-#board_view button{
+#board_detail table{
+	width: 500px;
+	margin: 20px auto;
+}
+#board_detail button{
 	padding: 5px;
 }
-#board_view input{
+#board_detail input{
 	width: 540px;
 	height: 25px;
 	padding: 5px;
 }
-#board_view textarea{
+#board_detail textarea{
 	width: 540px;
 	height: 300px;
 	padding: 5px;
 	resize: none;
 }
-table th, td{
+table tr, td{
 	padding: 10px;
+}
+.tbl_write tr:last-child td{
+	text-align: center;
 }
 table thead{
 	background: #eee;
+}
+#board_detail table, tr, td{
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	text-align: center;
 }
 #replyform textarea{
 	height: 100px;
 }
 /* 댓글 목록 스타일 */
-#board_view .reply{
-	border-top: 1px dotted #ccc;
-	margin: 10px;
+#replyform textarea{height: 100px; margin-top: 10px}
+#replyform input[type="submit"]{
+	width:60px;
+	height: 30px;
 }
-#board_view .reply p{
-	margin: 10px 0;
-	font-size: 0.9em;
-	color: #444;
-}
-#board_view .reply p:nth-of-type(1){
-	white-space: pre-line;
-	line-height: 1.5;
-}
-#replyform textarea{
-	height: 100px;
-}
-.replylogin{
-	background-color: #eee;
-	margin: 10px 0;
-	padding: 16px;
-	text-align: center;
-}
-.replylogin a{
-	color: blue;
-}
-.replylogin a:hover{
-	text-decoration: underline;
-}
+.reply{border-top: 1px dotted #ccc;}
+.reply{margin: 10px 0; font-size: 0.9em; color: #444;}
+.reply p:nth-of-type{}

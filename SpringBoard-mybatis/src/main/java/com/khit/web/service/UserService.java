@@ -20,5 +20,8 @@ public interface UserService {
 
 	void delete(Long id);
 
+	String checkUserId(String userId);
+
+
 
 }
