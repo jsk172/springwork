@@ -202,6 +202,9 @@ table th, td{
 table thead{
 	background: #eee;
 }
+.pagination .current_page{
+	font-weight: bold; color: #f00;
+}
 
 /* 글쓰기 스타일 */
 #writeform{
