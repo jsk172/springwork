@@ -53,7 +53,7 @@
 					</td>
 				</tr>
 			</table>
-			
+			<div id="reply-list">
 			<!-- 댓글 목록 -->
 			<c:forEach items="${replyList}" var="reply">
 				<div class="reply">
@@ -75,19 +75,19 @@
 					</p>
 				</div>
 			</c:forEach>
+			</div>
+			
 			<!-- 댓글 등록 -->
 			<c:choose>
 				<c:when test="${not empty sessionId}">
-					<form action="/reply/insert" method="post" id="replyform" name="replyform">
-						<input type="hidden" name="boardId" value="${board.id}">
-						<p>
-							<input type="text" name="replyer" value="${sessionId}" readonly>
-						</p>
-						<p>
-							<textarea rows="3" cols="50" name="replyContent" placeholder="댓글을 남겨주세요" id="replyContent"></textarea>
-						</p>
-						<input type="button" value="등록" onclick="checkReply()">
-					</form>
+					<input type="hidden" name="boardId" id="boardID" value="${board.id}">
+					<p>
+						<input type="text" name="replyer" id="replyer" value="${sessionId}" readonly>
+					</p>
+					<p>
+						<textarea rows="3" cols="50" name="replyContent" placeholder="댓글을 남겨주세요" id="replyContent"></textarea>
+					</p>
+					<input type="button" value="등록" onclick="replyInsert()">
 				</c:when>
 				<c:otherwise>
 					<!-- 댓글 등록 로그인 이동 -->
@@ -102,17 +102,46 @@
 	</div>
 	<jsp:include page="../layout/footer.jsp" />
 <script>
-	let checkReply = function(){
-		let form = document.replyform;
-		let content = document.getElementById("replyContent");
+	const replyInsert = function(){
 		
-		if(content.value == ""){
+		let boardId = "${board.id}";
+		let replyer = document.getElementById("replyer").value;
+		let content = document.getElementById("replyContent").value;
+		
+		if(content == ""){
 			alert("댓글을 입력해주세요.")
-			content.focus();
+			document.getElementById("replyContent").focus();
 			return false;
-		}else{
-			form.submit();
 		}
+		//ajax 구현
+		$.ajax({
+			//요청방식: POST, 요청주소: /reply/insert
+			type: "POST",
+			url: "/reply/insert",
+			data: {
+				boardId: boardId,
+				replyer: replyer,
+				replyContent: content
+			},
+			success: function(replyList){
+				console.log("댓글 등록 성공");
+				console.log(replyList);
+				//댓글 목록
+				let output = "";
+				for(let i in replyList){
+					output += "<div class='reply'>";
+					output += "<p>" + replyList[i].replyContent + "</p>";
+					output += "<p>작성자" + replyList[i].replyer + "</p>";
+					output += "<p>(작성일" + replyList[i].createdTime + ")</p>";
+					output += "</div>";
+				}
+				document.getElementById("reply-list").innerHTML = output;
+				document.getElementById("replyContent").value = "";
+			},
+			error: function(){
+				console.log("댓글 등록 실패");
+			},
+		});
  	}
 </script>
 </body>

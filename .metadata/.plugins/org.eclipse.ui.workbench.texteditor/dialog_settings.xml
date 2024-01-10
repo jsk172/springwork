@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="child"/>
+		<item key="selection" value="jack"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="jack"/>
+			<item value="jackson"/>
+			<item value="jason"/>
+			<item value="log4"/>
+			<item value="log4j2"/>
+			<item value="runtime"/>
+			<item value="slf4"/>
+			<item value="slf"/>
 			<item value="child"/>
 			<item value="last"/>
 			<item value="회원"/>
@@ -15,10 +23,6 @@
 			<item value="board_view"/>
 			<item value="글쓰기"/>
 			<item value="td"/>
-			<item value="main"/>
-			<item value="test"/>
-			<item value="build"/>
-			<item value="java-ver"/>
 		</list>
 		<list key="replacehistory">
 			<item value="board_detail"/>
@@ -26,8 +30,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="286"/>
-		<item key="DIALOG_Y_ORIGIN" value="182"/>
+		<item key="DIALOG_X_ORIGIN" value="78"/>
+		<item key="DIALOG_Y_ORIGIN" value="226"/>
 		<item key="DIALOG_WIDTH" value="393"/>
 		<item key="DIALOG_HEIGHT" value="523"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

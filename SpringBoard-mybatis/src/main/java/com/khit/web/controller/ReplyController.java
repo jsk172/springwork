@@ -1,5 +1,7 @@
 package com.khit.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.khit.web.dto.ReplyDTO;
 import com.khit.web.service.ReplyService;
@@ -24,11 +27,13 @@ public class ReplyController {
 	private ReplyService replyService;
 	//´ñ±Û µî·Ï
 	@PostMapping("/insert")
-	public String replyInsert(@ModelAttribute ReplyDTO replyDTO) {
+	public @ResponseBody List<ReplyDTO> replyInsert(@ModelAttribute ReplyDTO replyDTO) {
 		log.info("ReplyDTO:" + replyDTO);
 		//´ñ±Û ÀúÀå Ã³¸®
 		replyService.insert(replyDTO);
-		return "redirect:/board?id=" + replyDTO.getBoardId();
+		//´ñ±Ûµî·Ï ÈÄ ´ñ±Û ¸ñ·Ï °¡Á®¿Í¼­ detail ÆäÀÌÁö·Î º¸³»ÁÜ
+		List<ReplyDTO> replyList = replyService.getReplyList(replyDTO.getBoardId());
+		return replyList;
 	}
 	//´ñ±Û »èÁ¦
 	@GetMapping("/delete")
